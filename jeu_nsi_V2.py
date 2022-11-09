@@ -23,16 +23,25 @@ def jouer():
     #tirage
     global lettretire
     lettre=[chr(a)for a in range(97,123)]
-    caracteres_speciaux=('é','è','ç','ê','û','î','ï')
+    voyelle=('a','e','i','o','u','y')
+    caracteres_speciaux=('é','è','ç','ê','î')
     for a in range(len(caracteres_speciaux)):
         lettre.append(caracteres_speciaux[a])
     lettretire=[]
-    
-    for i in range(randint(7,10)):
+    for i in range(randint(6,7)):
         numero=randint(0,len(lettre)-1)
         while lettre[numero] in lettretire:
             numero=randint(0,25)
         lettretire.append(lettre[numero])
+    voyelletire=[i for i in voyelle if i in lettretire]
+    
+    #au moins 2 voyelles
+
+    while len(voyelletire)<2:
+        voyellerandom=voyelle[randint(0,5)]
+        if not voyellerandom in voyelletire:
+            lettretire.append(voyellerandom)
+            voyelletire.append(voyellerandom)
     print("les lettres tirées sont:",lettretire)
 
     #retirage
@@ -76,7 +85,6 @@ def jouer():
     elif rejouer == 'n':
         print("fin de partie")
 jouer()
-
 
     
 
