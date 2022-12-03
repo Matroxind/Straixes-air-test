@@ -11,7 +11,7 @@ def verfication(mot):
     lettreverifier=True
     for i in range(len(mot)):
         if not mot[i] in lettretire:
-            lettreverifier=False
+            lettreverifier=Falsesdsd
     if mot in mots and lettreverifier == True:
         return True
     else:
